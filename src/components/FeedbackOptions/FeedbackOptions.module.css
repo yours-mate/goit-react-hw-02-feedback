@@ -1,0 +1,20 @@
+.btn {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn.focus {
+  background-color: bisque;
+}
+
+.btn:active {
+  background-color: green;
+}
+
+.btn:not(:last-child) {
+  margin-right: 20px;
+}

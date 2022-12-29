@@ -1,0 +1,8 @@
+.notification {
+  font-size: 16px;
+  color: brown;
+}
+
+.data_list__item:not(:last-child) {
+  margin-bottom: 10px;
+}
