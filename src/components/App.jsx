@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Notification } from './Notification/Notification';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
@@ -30,17 +31,20 @@ state = {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
     return (
       <div>
         <Section title='Please leave feedback'>
-        <FeedbackOptions options={ this.state } onLeaveFeedback={this.onLeaveFeedback} />
+      <FeedbackOptions options={{good, neutral, bad}} onLeaveFeedback={this.onLeaveFeedback} />
         </Section>
         <Section title='Statistics'>
-<Statistics good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
+          {this.countTotalFeedback() === 0 ? <Notification/> : <Statistics good={good}
+          neutral={neutral}
+          bad={bad}
           total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()} />
+          positivePercentage={this.countPositiveFeedbackPercentage()} />}
+          
+
         </Section>
       </div>
     )
