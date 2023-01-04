@@ -2,18 +2,17 @@ import PropTypes from 'prop-types';
 import css from '../FeedbackOptions/FeedbackOptions.module.css';
 
 export function FeedbackOptions({ options, onLeaveFeedback }) {
-  const keys = Object.keys(options);
   return (
     <div className={css.set}>
-      {keys.map(key => (
+      {options.map(option => (
         <button
           className={css.btn}
           type="button"
-          key={key}
-          id={key}
+          key={option}
+          id={option}
           onClick={onLeaveFeedback}
         >
-          {key}
+          {option}
         </button>
       ))}
     </div>
@@ -21,10 +20,6 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.shape({
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-  }),
+  options: PropTypes.arrayOf(PropTypes.string),
   onLeaveFeedback: PropTypes.func.isRequired,
 };

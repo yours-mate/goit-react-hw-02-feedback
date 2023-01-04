@@ -35,10 +35,10 @@ state = {
     return (
       <div>
         <Section title='Please leave feedback'>
-      <FeedbackOptions options={{good, neutral, bad}} onLeaveFeedback={this.onLeaveFeedback} />
+      <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.onLeaveFeedback} />
         </Section>
         <Section title='Statistics'>
-          {this.countTotalFeedback() === 0 ? <Notification/> : <Statistics good={good}
+          {this.countTotalFeedback() === 0 ? <Notification message="There is no feedback"/> : <Statistics good={good}
           neutral={neutral}
           bad={bad}
           total={this.countTotalFeedback()}
